@@ -4,219 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiozaki Lab.</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-        
-        body {
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        header {
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-image {
-            height: 40px;
-            width: auto;
-        }
-        
-        .language-selector {
-            border: 1px solid #ddd;
-            padding: 5px 10px;
-        }
-        
-        nav {
-            padding: 20px 50px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-right: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: #888;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #333;
-        }
-        
-        .page-title {
-            padding: 30px 50px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .back-arrow {
-            margin-right: 20px;
-            color: #80c0e0;
-            font-size: 24px;
-            text-decoration: none;
-        }
-        
-        .title-text {
-            font-size: 20px;
-            font-weight: normal;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 50px; /* 余白を30pxから50pxに増加 */
-            padding: 20px 50px 50px;
-        }
-        
-        .project-card {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .project-card:hover .project-title,
-        .project-card:hover .project-date {
-            color: #80c0e0; /* ホバー時のテキスト色を変更 */
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 100%;
-            max-width: 400px;
-            max-height: 400px;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            margin-bottom: 10px;
-            transition: filter 0.3s ease;
-        }
-        
-        .project-image-container {
-            width: 100%;
-            height: 0;
-            padding-bottom: 100%;
-            position: relative;
-            overflow: hidden;
-            max-width: 400px;
-            max-height: 400px;
-        }
-        
-        .project-image-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(128, 192, 224, 0); /* 初期状態では透明 */
-            transition: background-color 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .project-card:hover .project-image-container::after {
-            background-color: rgba(128, 192, 224, 0.3); /* ホバー時にオーバーレイ色を表示 */
-        }
-        
-        .project-image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover .project-image-container img {
-            transform: scale(1.05); /* ホバー時に画像を少し拡大 */
-        }
-        
-        .project-title {
-            font-size: 16px;
-            font-weight: normal;
-            margin-bottom: 5px;
-            transition: color 0.3s ease;
-        }
-        
-        .project-date {
-            font-size: 12px;
-            color: #888;
-            transition: color 0.3s ease;
-        }
-
-        @media (max-width: 1200px) {
-            .projects-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px; /* タブレットサイズでも適度な余白を維持 */
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            header, nav, .tags, .page-title, .projects-grid {
-                padding: 15px 20px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-            }
-            
-            nav ul li {
-                margin-right: 15px;
-                margin-bottom: 5px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Shiozaki Lab." class="logo-image">
-            </a>
-        </div>
-    </header>
-    
-    <div class="page-title">
-        <h2 class="title-text"># Projects</h2>
-    </div>
+    <!-- ヘッダーをインクルード -->
+    <div id="header-container"></div>
     
     <div class="projects-grid">
         <a href="projects/project1.html" class="project-card">
@@ -299,5 +92,16 @@
             <div class="project-date">20241212</div>
         </a>
     </div>
+    
+    <script>
+        // ヘッダーを読み込む
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                // ページタイトルを設定
+                document.querySelector('.title-text').innerHTML = '# Projects';
+            });
+    </script>
 </body>
 </html>
