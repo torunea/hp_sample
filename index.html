@@ -26,26 +26,19 @@
             border-bottom: 1px solid #f0f0f0;
         }
         
-        .site-title {
-            font-size: 24px;
-            font-weight: 500;
-            color: #e74c3c;
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 40px;
+            width: auto;
         }
         
         .language-selector {
             border: 1px solid #ddd;
             padding: 5px 10px;
-        }
-        
-        .tags {
-            padding: 15px 50px;
-        }
-        
-        .tag {
-            display: inline-block;
-            margin-right: 15px;
-            color: #888;
-            font-size: 14px;
         }
         
         nav {
@@ -178,16 +171,13 @@
 </head>
 <body>
     <header>
-        <h1 class="site-title">Shiozaki Lab.</h1>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Shiozaki Lab." class="logo-image">
+            </a>
+        </div>
         <div class="language-selector">Japanese</div>
     </header>
-    
-    <div class="tags">
-        <span class="tag">#小さな風景</span>
-        <span class="tag">#漫画</span>
-        <span class="tag">#読んでいる本</span>
-        <span class="tag">#これまでのテキスト</span>
-    </div>
     
     <nav>
         <ul>
@@ -196,13 +186,11 @@
             <li><a href="#">Design Process</a></li>
             <li><a href="#">Publications</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#"><span class="search-icon">🔍</span></a></li>
         </ul>
     </nav>
     
     <div class="page-title">
-        <a href="#" class="back-arrow">←</a>
-        <h2 class="title-text"># プロジェクト</h2>
+        <h2 class="title-text"># Projects</h2>
     </div>
     
     <div class="projects-grid">
