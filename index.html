@@ -74,7 +74,7 @@
         
         .back-arrow {
             margin-right: 20px;
-            color: #e74c3c;
+            color: #80c0e0;
             font-size: 24px;
             text-decoration: none;
         }
@@ -87,13 +87,23 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 50px; /* 余白を30pxから50pxに増加 */
             padding: 20px 50px 50px;
         }
         
         .project-card {
             text-decoration: none;
             color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card:hover .project-title,
+        .project-card:hover .project-date {
+            color: #80c0e0; /* ホバー時のテキスト色を変更 */
         }
         
         .project-image {
@@ -104,6 +114,7 @@
             aspect-ratio: 1/1;
             object-fit: cover;
             margin-bottom: 10px;
+            transition: filter 0.3s ease;
         }
         
         .project-image-container {
@@ -116,6 +127,22 @@
             max-height: 400px;
         }
         
+        .project-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 192, 224, 0); /* 初期状態では透明 */
+            transition: background-color 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .project-card:hover .project-image-container::after {
+            background-color: rgba(128, 192, 224, 0.3); /* ホバー時にオーバーレイ色を表示 */
+        }
+        
         .project-image-container img {
             position: absolute;
             top: 0;
@@ -123,28 +150,37 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image-container img {
+            transform: scale(1.05); /* ホバー時に画像を少し拡大 */
         }
         
         .project-title {
             font-size: 16px;
             font-weight: normal;
             margin-bottom: 5px;
+            transition: color 0.3s ease;
         }
         
         .project-date {
             font-size: 12px;
             color: #888;
+            transition: color 0.3s ease;
         }
 
         @media (max-width: 1200px) {
             .projects-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 40px; /* タブレットサイズでも適度な余白を維持 */
             }
         }
         
         @media (max-width: 900px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
         }
         
@@ -155,7 +191,7 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
             }
             
             nav ul {
@@ -176,16 +212,15 @@
                 <img src="img/logo.png" alt="Shiozaki Lab." class="logo-image">
             </a>
         </div>
-        <div class="language-selector">Japanese</div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Design Process</a></li>
-            <li><a href="#">Publications</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="design-process.html">Design Process</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     
@@ -194,83 +229,83 @@
     </div>
     
     <div class="projects-grid">
-        <a href="#" class="project-card">
+        <a href="projects/project1.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project1.jpg" alt="プロジェクト1" class="project-image">
+                <img src="img/project1.jpg" alt="project1" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト1</h3>
+            <h3 class="project-title">project1</h3>
             <div class="project-date">20250425</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project2.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project2.jpg" alt="プロジェクト2" class="project-image">
+                <img src="img/project2.jpg" alt="project2" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト2</h3>
+            <h3 class="project-title">project2</h3>
             <div class="project-date">20250410</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project3.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project3.jpg" alt="プロジェクト3" class="project-image">
+                <img src="img/project3.jpg" alt="project3" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト3</h3>
+            <h3 class="project-title">project3</h3>
             <div class="project-date">20250328</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project4.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project4.jpg" alt="プロジェクト4" class="project-image">
+                <img src="img/project4.jpg" alt="project4" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト4</h3>
+            <h3 class="project-title">project4</h3>
             <div class="project-date">20250312</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project5.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project5.jpg" alt="プロジェクト5" class="project-image">
+                <img src="img/project5.jpg" alt="project5" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト5</h3>
+            <h3 class="project-title">project5</h3>
             <div class="project-date">20250227</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project6.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project6.jpg" alt="プロジェクト6" class="project-image">
+                <img src="img/project6.jpg" alt="project6" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト6</h3>
+            <h3 class="project-title">project6</h3>
             <div class="project-date">20250215</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project7.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project7.jpg" alt="プロジェクト7" class="project-image">
+                <img src="img/project7.jpg" alt="project7" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト7</h3>
+            <h3 class="project-title">project7</h3>
             <div class="project-date">20250130</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project8.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project8.jpg" alt="プロジェクト8" class="project-image">
+                <img src="img/project8.jpg" alt="project8" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト8</h3>
+            <h3 class="project-title">project8</h3>
             <div class="project-date">20250115</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project9.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project9.jpg" alt="プロジェクト9" class="project-image">
+                <img src="img/project9.jpg" alt="project9" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト9</h3>
+            <h3 class="project-title">project9</h3>
             <div class="project-date">20241228</div>
         </a>
         
-        <a href="#" class="project-card">
+        <a href="projects/project10.html" class="project-card">
             <div class="project-image-container">
-                <img src="img/project10.jpg" alt="プロジェクト10" class="project-image">
+                <img src="img/project10.jpg" alt="project10" class="project-image">
             </div>
-            <h3 class="project-title">プロジェクト10</h3>
+            <h3 class="project-title">project10</h3>
             <div class="project-date">20241212</div>
         </a>
     </div>
