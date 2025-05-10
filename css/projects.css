@@ -1,7 +1,7 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 最大4列に固定 */
-    gap: 30px; /* 余白を調整 */
+    gap: 20px; /* 余白を調整 */
     padding: 20px 30px 30px; /* パディングも調整 */
     max-width: 1400px; /* 最大幅を調整して4列に制限 */
     margin: 0 auto;
