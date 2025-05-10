@@ -1,6 +1,6 @@
 /* フッターのスタイル - 白背景に黒文字、小さいフォント */
 .site-footer {
-    padding: 25px 0;
+    padding: 15px 0;
     margin-top: 50px;
     background-color: #fff; /* 白背景 */
     color: #333; /* 黒文字 */
@@ -30,7 +30,7 @@
 }
 
 .footer-links {
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 .footer-links a {
