@@ -1,109 +1,127 @@
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 50px;
-    padding: 20px 50px 50px;
-    max-width: 1600px; /* 必要に応じて全体の最大幅を設定 */
-    margin: 0 auto; /* 中央揃え */
+    grid-template-columns: repeat(4, 1fr); /* 最大4列に固定 */
+    gap: 25px; /* 余白を調整 */
+    padding: 20px 30px 30px; /* パディングも調整 */
+    max-width: 1400px; /* 最大幅を調整して4列に制限 */
+    margin: 0 auto;
 }
 
 .project-card {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    display: block;
+    position: relative; /* 子要素の絶対位置指定の基準点 */
 }
 
-.project-image {
+/* 画像用の透明正方形 */
+.fixed-image-square {
     width: 100%;
-    height: 100%;
-    max-width: 400px;
-    max-height: 400px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    height: 0;
+    padding-bottom: 100%; /* 正方形を維持 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3; /* 最前面に配置 */
 }
 
-.project-image-container {
+/* タイトル用の透明正方形 */
+.fixed-text-square {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 正方形を維持 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* 色付き正方形より下に配置 */
+}
+
+/* 色付き正方形 - ホバー時に縮小するのみ */
+.project-square {
     width: 100%;
     height: 0;
     padding-bottom: 100%; /* 正方形を維持 */
     position: relative;
-    overflow: hidden;
-    /* 固定のmax-widthとmax-heightを削除し、コンテナが適切にリサイズされるようにする */
-}
-
-.project-image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.project-image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-color: #80a0c0; /* デフォルトの背景色 - 落ち着いた青 */
     transition: transform 0.3s ease;
+    z-index: 2; /* 固定テキスト正方形の上、固定画像正方形の下に表示 */
+    transform-origin: center; /* 縮小の中心点を明示的に設定 */
 }
 
-.project-card:hover .project-image-container img {
+/* ジャンル別カラー設定 - 寒色系に統一 */
+.project-card[data-genre="event"] .project-square {
+    background-color: #6a8caf; /* イベント：穏やかな青 */
+}
+
+.project-card[data-genre="publish"] .project-square {
+    background-color: #7d9cb8; /* 出版：やや明るい青 */
+}
+
+.project-card[data-genre="research"] .project-square {
+    background-color: #607d9c; /* 研究：深い青 */
+}
+
+.project-card[data-genre="exhibition"] .project-square {
+    background-color: #89a9c6; /* 展示：明るめの青 */
+}
+
+/* ホバー時の色付き正方形の縮小 */
+.project-card:hover .project-square {
     transform: scale(0.8);
 }
 
-/* 新しい結合したプロジェクト情報スタイル */
-.project-info {
-    font-size: 1rem; /* 文字サイズを小さく */
-    font-weight: normal;
-    margin: 0;
+/* 画像コンテナを固定画像正方形内に配置 */
+.project-image-container {
     position: absolute;
-    bottom: 10px; /* 位置を調整 */
-    left: 10px;
-    z-index: 2;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
 }
 
-/* レスポンシブなメディアクエリを更新 */
-@media (min-width: 1401px) {
-    .projects-grid {
-        grid-template-columns: repeat(5, 1fr); /* 大きな画面では5列 */
-    }
+/* 画像自体のスタイル */
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@media (min-width: 1101px) and (max-width: 1400px) {
+/* プロジェクト情報テキスト - 画像と同じ左端位置に配置 */
+.project-info {
+    font-size: 15px;
+    position: absolute;
+    bottom: 5px;
+    left: 10%; /* 画像コンテナと同じ左オフセット */
+    color: #000; /* 文字色を黒に */
+}
+
+/* レスポンシブなメディアクエリを調整 - 最大4列に制限 */
+@media (min-width: 1101px) {
     .projects-grid {
-        grid-template-columns: repeat(4, 1fr); /* 大きめの画面では4列 */
+        grid-template-columns: repeat(4, 1fr); /* 大きな画面でも最大4列 */
     }
 }
 
 @media (min-width: 851px) and (max-width: 1100px) {
     .projects-grid {
-        grid-template-columns: repeat(3, 1fr); /* 中くらいの画面では3列 */
-        gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; /* さらに余白を減らす */
     }
 }
 
-@media (min-width: 451px) and (max-width: 850px) {
+@media (min-width: 551px) and (max-width: 850px) {
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr); /* 小さめの画面では2列 */
-        gap: 30px;
-        padding: 15px 30px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px; /* さらに余白を減らす */
+        padding: 15px 20px 20px;
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
     .projects-grid {
-        grid-template-columns: repeat(1, 1fr); /* モバイルでは1列 */
-        gap: 30px;
-        padding: 15px 20px 30px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px; /* 縦方向の余白も調整 */
+        padding: 10px 15px 20px;
     }
 }
