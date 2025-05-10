@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiozaki Lab.</title>
+    <title>shiozaki_lab_projects</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
     <!-- ヘッダーをインクルード -->
@@ -156,6 +157,8 @@
         </a>
     </div>
     
+    <div id="footer-container"></div>
+
     <script>
         // ヘッダーを読み込む
         fetch('header.html')
@@ -164,6 +167,12 @@
                 document.getElementById('header-container').innerHTML = data;
                 // ページタイトルを設定
                 document.querySelector('.title-text').innerHTML = '# Projects';
+            });
+        // フッターを読み込む
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
             });
     </script>
 </body>

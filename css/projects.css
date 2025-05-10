@@ -1,7 +1,7 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 最大4列に固定 */
-    gap: 25px; /* 余白を調整 */
+    gap: 30px; /* 余白を調整 */
     padding: 20px 30px 30px; /* パディングも調整 */
     max-width: 1400px; /* 最大幅を調整して4列に制限 */
     margin: 0 auto;
@@ -48,21 +48,21 @@
     transform-origin: center; /* 縮小の中心点を明示的に設定 */
 }
 
-/* ジャンル別カラー設定 - 寒色系に統一 */
+/* ジャンル別カラー設定 - さらに淡い青系パステル */
 .project-card[data-genre="event"] .project-square {
-    background-color: #6a8caf; /* イベント：穏やかな青 */
+    background-color: #b8d2e8; /* イベント：非常に淡いブルー */
 }
 
 .project-card[data-genre="publish"] .project-square {
-    background-color: #7d9cb8; /* 出版：やや明るい青 */
+    background-color: #c5e2f0; /* 出版：ベビーブルー */
 }
 
 .project-card[data-genre="research"] .project-square {
-    background-color: #607d9c; /* 研究：深い青 */
+    background-color: #bbc7e0; /* 研究：淡いパープルブルー */
 }
 
 .project-card[data-genre="exhibition"] .project-square {
-    background-color: #89a9c6; /* 展示：明るめの青 */
+    background-color: #b8dde6; /* 展示：淡いターコイズ */
 }
 
 /* ホバー時の色付き正方形の縮小 */
