@@ -96,6 +96,21 @@
     color: #000; /* 文字色を黒に */
 }
 
+/* プロジェクトタイトル - 太字 */
+.project-title {
+    font-weight: bold;
+}
+
+/* 区切り文字 - 細字 */
+.project-separator {
+    font-weight: normal;
+}
+
+/* 日付 - 細字 */
+.project-date {
+    font-weight: normal;
+}
+
 /* レスポンシブなメディアクエリを調整 - 最大4列に制限 */
 @media (min-width: 1101px) {
     .projects-grid {
