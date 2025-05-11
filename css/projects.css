@@ -50,20 +50,22 @@
 
 /* ジャンル別カラー設定 - さらに淡い青系パステル */
 .project-card[data-genre="event"] .project-square {
-    background-color: #b8d2e8; /* イベント：非常に淡いブルー */
+    background-color: #a0c0e0; /* イベント */
 }
 
 .project-card[data-genre="publish"] .project-square {
-    background-color: #c5e2f0; /* 出版：ベビーブルー */
+    background-color: #c0c080; /* 出版 */
 }
 
 .project-card[data-genre="research"] .project-square {
-    background-color: #bbc7e0; /* 研究：淡いパープルブルー */
+    background-color: #c0e0a0; /* 研究 */
 }
 
-.project-card[data-genre="exhibition"] .project-square {
-    background-color: #b8dde6; /* 展示：淡いターコイズ */
+/* 追加のジャンルカラー設定例
+.project-card[data-genre="additional"] .project-square {
+    background-color: #ffffff;
 }
+*/
 
 /* ホバー時の色付き正方形の縮小 */
 .project-card:hover .project-square {
