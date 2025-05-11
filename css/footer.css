@@ -23,7 +23,7 @@
     line-height: 1.5;
 }
 
-.footer-contact p, .footer-address p, .footer-lab p, .footer-links p {
+.footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
     font-size: 12px; /* フォントサイズ */
 }
 
@@ -56,7 +56,7 @@
         font-size: 11px; /* モバイルではさらに小さく */
     }
 
-    .footer-contact p, .footer-address p, .footer-lab p, .footer-links p {
+    .footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
         font-size: 11px; /* フォントサイズ */
     }
     
@@ -84,7 +84,7 @@
         font-size: 8px; /* モバイルではさらに小さく */
     }
 
-    .footer-contact p, .footer-address p, .footer-lab p, .footer-links p {
+    .footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
         font-size: 8px; /* フォントサイズ */
     }
     
